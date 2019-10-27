@@ -1,0 +1,20 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFF
+}
+canvas {
+  display: block;
+  background-color: #D3D3D3;
+}
+
+#count {
+  font-size: 72pt;
+  margin: 0;
+}
+
+#btn {
+  margin: 10px 0 0 10px;
+  width: 75px;
+  height: 30px;
+}
