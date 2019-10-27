@@ -7,13 +7,13 @@ window.onload = function() {
   cvs.height = 200
   const ctx = cvs.getContext("2d");
   const countDiv = document.getElementById("count")
-  let block1 = new Block(100, 20, 0, 1)
-  const m2 = Math.pow(100, digits - 1)
-  let block2 = new Block(300, 100, -5/timeSteps, m2)
+  const mass2 = Math.pow(100, digits - 1)
   const clack = document.getElementById("clack")
   const blockImg = document.getElementById("block")
   let count = 0
   let myReq
+  let block1
+  let block2
   function draw() {
     if(block1.x <= window.innerWidth) {
       let clackSound = false
@@ -54,7 +54,7 @@ window.onload = function() {
   document.getElementById("btn").onclick = () => { 
     cancelAnimationFrame(myReq)
     block1 = new Block(100, 20, 0, 1)
-    block2 = new Block(300, 100, -5/timeSteps, m2)
+    block2 = new Block(300, 100, -5/timeSteps, mass2)
     count = 0
     btnClicked = true
     draw(); 
