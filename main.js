@@ -1,7 +1,7 @@
   
 window.onload = function() {
-  const digits = 6
-  const timeSteps = 10000
+  const digits = 8
+  const timeSteps = 450000
   const cvs = document.getElementById("canvas");
   cvs.width = window.innerWidth
   cvs.height = 200
@@ -36,12 +36,10 @@ window.onload = function() {
         block1.update()
         block2.update()
       }
-      if (countDiv.innerHTML != count) {
-        countDiv.innerHTML = "Collisions: " + count
-      }
       if(clackSound) {
         const promise = clack.play()
-        promise.catch((err) => console.log(err) )
+        promise.catch((err) => console.log(err))
+        countDiv.innerHTML = "Collisions: " + count
       }
       myReq = requestAnimationFrame(draw);
     }
