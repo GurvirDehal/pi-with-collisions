@@ -1,9 +1,10 @@
 class Block {
-  constructor(x, width, velocity, mass) {
+  constructor(x, width, velocity, mass, id) {
     this.x = x
     this.width = width
     this.velocity = velocity
     this.mass = mass
+    this.img = document.getElementById(id)
   }
   show() {
     image(blockImg, this.x, this.y, this.width)

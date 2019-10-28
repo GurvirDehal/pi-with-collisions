@@ -9,12 +9,24 @@ canvas {
 }
 
 #count {
-  font-size: 72pt;
-  margin: 0;
+  font-size: 50pt;
+  margin: 0 0 0 10px;
 }
 
 #btn {
   margin: 10px 0 0 10px;
   width: 75px;
   height: 30px;
+}
+
+#m1 {
+  color: blue;
+  margin-left: 10px;
+  font-size: 16pt;
+}
+
+#m2 {
+  color: red;
+  margin-left: 10px;
+  font-size: 16pt;
 }

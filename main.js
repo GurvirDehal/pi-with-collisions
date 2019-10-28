@@ -9,7 +9,6 @@ window.onload = function() {
   const countDiv = document.getElementById("count")
   const mass2 = Math.pow(100, digits - 1)
   const clack = document.getElementById("clack")
-  const blockImg = document.getElementById("block")
   let count = 0
   let myReq
   let block1
@@ -18,8 +17,8 @@ window.onload = function() {
     if(block1.x <= window.innerWidth) {
       let clackSound = false
       ctx.clearRect(0, 0, window.innerWidth, 200)
-      ctx.drawImage(blockImg, block1.x, cvs.height - block1.width, block1.width, block1.width);
-      ctx.drawImage(blockImg, block2.x, cvs.height - block2.width, block2.width, block2.width);
+      ctx.drawImage(block1.img, block1.x, cvs.height - block1.width, block1.width, block1.width);
+      ctx.drawImage(block2.img, block2.x, cvs.height - block2.width, block2.width, block2.width);
       for(let i = 0; i < timeSteps; i++) {
         if(block1.collide(block2)) {
           const v1 = block1.bounce(block2)
@@ -38,25 +37,24 @@ window.onload = function() {
         block2.update()
       }
       if (countDiv.innerHTML != count) {
-        countDiv.innerHTML = count
+        countDiv.innerHTML = "Collisions: " + count
       }
       if(clackSound) {
         const promise = clack.play()
         promise.catch((err) => console.log(err) )
       }
-      if(btnClicked) {
-        myReq = requestAnimationFrame(draw);
-      }
+      myReq = requestAnimationFrame(draw);
     }
 
   }
 
   document.getElementById("btn").onclick = () => { 
     cancelAnimationFrame(myReq)
-    block1 = new Block(100, 20, 0, 1)
-    block2 = new Block(300, 100, -5/timeSteps, mass2)
+    block1 = new Block(100, 20, 0, 1, "block1")
+    block2 = new Block(300, 100, -5/timeSteps, mass2, "block2")
     count = 0
-    btnClicked = true
+    document.getElementById("m1").innerHTML = "Mass 1: " + block1.mass
+    document.getElementById("m2").innerHTML = "Mass 2: " + block2.mass
     draw(); 
   }
 }
